@@ -3,7 +3,7 @@ import pandas as pd
 from pycaret.classification import load_model, predict_model
 
 # Load the saved model
-loaded_model = load_model('best_milk_quality_model')
+loaded_model = load_model('best_milk_quality_model.pkl')
 
 # Streamlit App Title
 st.title('Milk Quality Prediction')
@@ -44,5 +44,6 @@ if st.button('Predict Milk Quality'):
     # Assuming 0: High, 1: Low, 2: Medium based on previous LabelEncoding
     grade_mapping = {0: 'High', 1: 'Low', 2: 'Medium'}
     predicted_grade_label = grade_mapping.get(predicted_grade, 'Unknown')
+
 
     st.success(f'The predicted Milk Quality Grade is: {predicted_grade_label}')
